@@ -158,9 +158,13 @@ end
 local function createMenu(id)
     local actualItem,actualQty,qty,position,infos,descByState = 0,1,{},pzCore.shops.config.list[id].loc,pzCore.shops.config.groups[pzCore.shops.config.list[id].type],{[true] = "Vous pouvez braquer le vendeur",[false] = "Vous devez être armé"}
     RMenu.Add("pz_core_ltd", "pz_core_ltd_main", RageUI.CreateMenu("Shop","Faites votre choix"))
-    RMenu:Get('pz_core_ltd', 'pz_core_ltd_main').Closed = function()end
+    RMenu:Get('pz_core_ltd', 'pz_core_ltd_main').Closed = function()
+        ShopOpen = false
+    end
     RMenu.Add('pz_core_ltd', 'pz_core_ltd_item', RageUI.CreateSubMenu(RMenu:Get('pz_core_ltd', 'pz_core_ltd_main'), "Shop", "Faites votre choix"))
-    RMenu:Get('pz_core_ltd', 'pz_core_ltd_item').Closed = function()end
+    RMenu:Get('pz_core_ltd', 'pz_core_ltd_item').Closed = function()
+        ShopOpen = false
+    end
     RageUI.Visible(RMenu:Get('pz_core_ltd', 'pz_core_ltd_main'), not RageUI.Visible(RMenu:Get('pz_core_ltd', 'pz_core_ltd_main')))
     Citizen.CreateThread(function()
         local dist = 0
@@ -217,6 +221,7 @@ local function createMenu(id)
             end, 1)
             Citizen.Wait(0)
         end
+        ShopOpen = false
         dynamicMenu4 = false
         deleteMenus()
     end)

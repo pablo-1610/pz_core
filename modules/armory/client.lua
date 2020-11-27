@@ -38,10 +38,14 @@ end
 local function createMenu(infos,id)
     if pzCore.armory.config.list[id].currentNPC ~= nil then PlayAmbientSpeech1(pzCore.armory.config.list[id].currentNPC, "GENERIC_HI", "SPEECH_PARAMS_FORCE_NORMAL_CLEAR") end
     RMenu.Add("pz_core_ammo", "pz_core_ammo_main", RageUI.CreateMenu("Armurerie","Faites votre choix"))
-    RMenu:Get('pz_core_ammo', 'pz_core_ammo_main').Closed = function()end
+    RMenu:Get('pz_core_ammo', 'pz_core_ammo_main').Closed = function()
+        AmoOpen = false
+    end
 
     RMenu.Add('pz_core_ammo', 'pz_core_ammo_item', RageUI.CreateSubMenu(RMenu:Get('pz_core_ammo', 'pz_core_ammo_main'), "Armurerie", "Faites votre choix"))
-    RMenu:Get('pz_core_ammo', 'pz_core_ammo_item').Closed = function()end
+    RMenu:Get('pz_core_ammo', 'pz_core_ammo_item').Closed = function()
+        AmoOpen = false
+    end
     if not AmoOpen then 
     AmoOpen = true
     RageUI.Visible(RMenu:Get('pz_core_ammo', 'pz_core_ammo_main'), not RageUI.Visible(RMenu:Get('pz_core_ammo', 'pz_core_ammo_main')))
@@ -85,6 +89,7 @@ local function createMenu(infos,id)
             end, 1)
             Citizen.Wait(0)
         end
+        AmoOpen = false
         dynamicMenu4 = false
         deleteMenus()
     end)
