@@ -163,6 +163,19 @@ Markers = {
             end,
         },
 
+
+        ["police_inventory"] = {
+            position = vector3(441.91, -991.39, 30.68),
+            drawDist = 20,
+            itrDist = 1.5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
+            interact = function()
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "fbi", GetEntityCoords(PlayerPedId()))
+            end,
+        },
+
         -- FBI
 
         ["fbi_vehicleClear"] = {
@@ -215,6 +228,19 @@ Markers = {
                 end, { wash = false })
             end,
         },
+
+        ["fbi_inventory"] = {
+            position = vector3(147.56, -769.16, 242.15),
+            drawDist = 20,
+            itrDist = 1.5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
+            interact = function()
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "fbi", GetEntityCoords(PlayerPedId()))
+            end,
+        },
+
 
         -- Unicorn
 
@@ -307,6 +333,19 @@ Markers = {
             end,
         },
 
+        ["unicorn_inventory"] = {
+            position = vector3(92.66, -1291.70, 29.23),
+            drawDist = 20,
+            itrDist = 1.5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
+            interact = function()
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "unicorn", GetEntityCoords(PlayerPedId()))
+            end,
+        },
+
+
         -- Bahamas
 
         ["bahamas_bar_exit"] = {
@@ -397,6 +436,18 @@ Markers = {
             end,
         },
 
+        ["bahamas_inventory"] = {
+            position = vector3(-1386.31, -627.32, 30.81),
+            drawDist = 20,
+            itrDist = 1.5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
+            interact = function()
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "bahamas", GetEntityCoords(PlayerPedId()))
+            end,
+        },
+
         -- Taxi
 
         ["taxi_vehicleClear"] = {
@@ -447,6 +498,18 @@ Markers = {
             help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder aux vestiaires",
             interact = function()
                 RageUI.Visible(RMenu:Get("taxi_clothes",'taxi_clothes_main'), not RageUI.Visible(RMenu:Get("taxi_clothes",'taxi_clothes_main')))
+            end,
+        },
+
+        ["taxi_inventory"] = {
+            position = vector3(894.95, -179.25, 74.70),
+            drawDist = 20,
+            itrDist = 1.5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
+            interact = function()
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "taxi", GetEntityCoords(PlayerPedId()))
             end,
         },
 

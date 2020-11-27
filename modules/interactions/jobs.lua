@@ -34,14 +34,16 @@ jobsMarkers = {
             "police_vehicle",
             "police_vehicleClear",
             "police_helicopter",
-            "police_boss"
+            "police_boss",
+            "police_inventory"
         },
 
         ["fbi"] = {
             "fbi_vehicle",
             "fbi_vehicleClear",
             "fbi_armory",
-            "fbi_boss"
+            "fbi_boss",
+            "fbi_inventory"
         },
 
         ["unicorn"] = {
@@ -51,7 +53,8 @@ jobsMarkers = {
             "unicorn_boss",
             "unicorn_clothes",
             "unicorn_garage",
-            "unicorn_vehicleClear"
+            "unicorn_vehicleClear",
+            "unicorn_inventory"
         },
 
         ["bahamas"] = {
@@ -61,14 +64,16 @@ jobsMarkers = {
             "bahamas_boss",
             "bahamas_clothes",
             "bahamas_garage",
-            "bahamas_vehicleClear"
+            "bahamas_vehicleClear",
+            "bahamas_inventory"
         },
 
         ["taxi"] = {
             "taxi_vehicleClear",
             "taxi_garage",
             "taxi_boss",
-            "taxi_clothes"
+            "taxi_clothes",
+            "taxi_inventory"
         },
 
         ["vigne"] = {
