@@ -277,6 +277,11 @@ Menus = {
                     RageUI.Separator("↓ ~b~Boissons avec alcool ↓")
                     
                     for k,v in pairs(pzCore.jobs["unicorn"].config.drinks.alcool) do
+                        RageUI.ButtonWithStyle(v.label,"~b~Cette boisson est alcoolisé", {RightLabel = "~b~Prendre~s~ →→"}, true, function(_,_,s)
+                            if s then
+                                TriggerServerEvent("pz_core:giveDrink", v.item)
+                            end
+                        end)
                     end
 
                     RageUI.Separator("↓ ~b~Boissons sans alcool ↓")
@@ -295,12 +300,17 @@ Menus = {
                 RageUI.IsVisible(RMenu:Get("bahamas_barman",'bahamas_barman_main'),true,true,true,function()
                     RageUI.Separator("↓ ~b~Boissons avec alcool ↓")
                     
-                    for k,v in pairs(pzCore.jobs["unicorn"].config.drinks.alcool) do
+                    for k,v in pairs(pzCore.jobs["bahamas"].config.drinks.alcool) do
+                        RageUI.ButtonWithStyle(v.label,"~b~Cette boisson est alcoolisé", {RightLabel = "~b~Prendre~s~ →→"}, true, function(_,_,s)
+                            if s then
+                                TriggerServerEvent("pz_core:giveDrink", v.item)
+                            end
+                        end)
                     end
 
                     RageUI.Separator("↓ ~b~Boissons sans alcool ↓")
 
-                    for k,v in pairs(pzCore.jobs["unicorn"].config.drinks.noalcool) do
+                    for k,v in pairs(pzCore.jobs["bahamas"].config.drinks.noalcool) do
                         RageUI.ButtonWithStyle(v.label,"~b~Cette boisson ~g~ne contient pas~b~ d'alcool", {RightLabel = "~b~Prendre~s~ →→"}, true, function(_,_,s)
                             if s then
                                 RageUI.CloseAll()
