@@ -468,6 +468,14 @@ Menus = {
                 end, 1)
 
                 RageUI.IsVisible(RMenu:Get("fbi_armory",'fbi_armory_main'),true,true,true,function()
+                    RageUI.Separator("↓ ~r~Options~s~ ↓")
+                    RageUI.ButtonWithStyle("Ranger toutes mes armes.", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                        if Selected then
+                            PlaySound(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0);
+                            RemoveAllPedWeapons(GetPlayerPed(-1), true)
+                            TriggerEvent("esx:showAdvancedNotification", '~g~FBI', 'Armurerie', '~g~Vos armes ont été rangées.', 'CHAR_CALL911', 'spawn', 8)
+                        end
+                    end)
                     RageUI.Separator("↓ ~r~Armes disponibles~s~ ↓")
                     for i = 1,#pzCore.jobs["fbi"].config.weapons do
                         RageUI.ButtonWithStyle("Obtenir un "..pzCore.jobs["fbi"].config.weapons[i].label,"Vous permets d'équiper un "..pzCore.jobs["fbi"].config.weapons[i].label, {RightBadge = RageUI.BadgeStyle.Gun}, ESX.PlayerData.job.grade >= pzCore.jobs["fbi"].config.weapons[i].minGrade, function(_,_,s)
