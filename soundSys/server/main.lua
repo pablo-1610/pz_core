@@ -11,8 +11,8 @@
 ------
 
 ------
--- RegisterServerEvent InteractSound_SV:PlayOnOne
--- Triggers -> ClientEvent InteractSound_CL:PlayOnOne
+-- RegisterServerEvent pz_coresv:PlayOnOne
+-- Triggers -> ClientEvent pz_corecl:PlayOnOne
 --
 -- @param clientNetId  - The network id of the client that the sound should be played on.
 -- @param soundFile    - The name of the soundfile within the client/html/sounds/ folder.
@@ -24,14 +24,14 @@
 --
 -- Starts playing a sound locally on a single client.
 ------
-RegisterServerEvent('InteractSound_SV:PlayOnOne')
-AddEventHandler('InteractSound_SV:PlayOnOne', function(clientNetId, soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnOne', clientNetId, soundFile, soundVolume)
+RegisterServerEvent('pz_coresv:PlayOnOne')
+AddEventHandler('pz_coresv:PlayOnOne', function(clientNetId, soundFile, soundVolume)
+    TriggerClientEvent('pz_corecl:PlayOnOne', clientNetId, soundFile, soundVolume)
 end)
 
 ------
--- RegisterServerEvent InteractSound_SV:PlayOnSource
--- Triggers -> ClientEvent InteractSound_CL:PlayOnSource
+-- RegisterServerEvent pz_coresv:PlayOnSource
+-- Triggers -> ClientEvent pz_corecl:PlayOnSource
 --
 -- @param soundFile    - The name of the soundfile within the client/html/sounds/ folder.
 --                     - Can also specify a folder/sound file.
@@ -42,14 +42,14 @@ end)
 --
 -- Starts playing a sound locally on a single client, which is the source of the event.
 ------
-RegisterServerEvent('InteractSound_SV:PlayOnSource')
-AddEventHandler('InteractSound_SV:PlayOnSource', function(soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnOne', source, soundFile, soundVolume)
+RegisterServerEvent('pz_coresv:PlayOnSource')
+AddEventHandler('pz_coresv:PlayOnSource', function(soundFile, soundVolume)
+    TriggerClientEvent('pz_corecl:PlayOnOne', source, soundFile, soundVolume)
 end)
 
 ------
--- RegisterServerEvent InteractSound_SV:PlayOnAll
--- Triggers -> ClientEvent InteractSound_CL:PlayOnAll
+-- RegisterServerEvent pz_coresv:PlayOnAll
+-- Triggers -> ClientEvent pz_corecl:PlayOnAll
 --
 -- @param soundFile     - The name of the soundfile within the client/html/sounds/ folder.
 --                      - Can also specify a folder/sound file.
@@ -59,14 +59,14 @@ end)
 --
 -- Starts playing a sound on all clients who are online in the server.
 ------
-RegisterServerEvent('InteractSound_SV:PlayOnAll')
-AddEventHandler('InteractSound_SV:PlayOnAll', function(soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayOnAll', -1, soundFile, soundVolume)
+RegisterServerEvent('pz_coresv:PlayOnAll')
+AddEventHandler('pz_coresv:PlayOnAll', function(soundFile, soundVolume)
+    TriggerClientEvent('pz_corecl:PlayOnAll', -1, soundFile, soundVolume)
 end)
 
 ------
--- RegisterServerEvent InteractSound_SV:PlayWithinDistance
--- Triggers -> ClientEvent InteractSound_CL:PlayWithinDistance
+-- RegisterServerEvent pz_coresv:PlayWithinDistance
+-- Triggers -> ClientEvent pz_corecl:PlayWithinDistance
 --
 -- @param playOnEntity    - The entity network id (will be converted from net id to entity on client)
 --                        - of the entity for which the max distance is to be drawn from.
@@ -81,7 +81,7 @@ end)
 -- Starts playing a sound on a client if the client is within the specificed maxDistance from the playOnEntity.
 -- @TODO Change sound volume based on the distance the player is away from the playOnEntity.
 ------
-RegisterServerEvent('InteractSound_SV:PlayWithinDistance')
-AddEventHandler('InteractSound_SV:PlayWithinDistance', function(maxDistance, soundFile, soundVolume)
-    TriggerClientEvent('InteractSound_CL:PlayWithinDistance', -1, source, maxDistance, soundFile, soundVolume)
+RegisterServerEvent('pz_coresv:PlayWithinDistance')
+AddEventHandler('pz_coresv:PlayWithinDistance', function(maxDistance, soundFile, soundVolume)
+    TriggerClientEvent('pz_corecl:PlayWithinDistance', -1, source, maxDistance, soundFile, soundVolume)
 end)
