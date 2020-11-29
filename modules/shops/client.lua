@@ -267,6 +267,22 @@ AddEventHandler("pz_core_ltd:purchaseCb", function(ok)
 end)
 
 
+
+-- Function de la notification 
+
+
+function DrawAdvancedNotification_(sender, subject, msg, textureDict, iconType)
+    SetAudioFlag("LoadMPData", 1)
+    PlaySoundFrontend(-1, "Boss_Message_Orange", "GTAO_Boss_Goons_FM_Soundset", 1)
+	AddTextEntry('AutoEventAdvNotif', msg)
+	BeginTextCommandThefeedPost('AutoEventAdvNotif')
+	EndTextCommandThefeedPostMessagetext(textureDict, textureDict, false, iconType, sender, subject)
+end
+
+
+-- Alerte police
+
+
 RegisterNetEvent("pz_core_shops:initializePoliceBlip")
 AddEventHandler("pz_core_shops:initializePoliceBlip", function(id)
     local duration = 20
