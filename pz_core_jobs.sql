@@ -43,11 +43,11 @@ INSERT INTO `jobs` (name, label) VALUES
 ;
 
 INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES
-	('taxi',0,'recrue','Recrue',12, null),
-	('taxi',1,'novice','Novice',24, null),
-	('taxi',2,'experimente','Experimente',36, null),
-	('taxi',3,'uber','Uber',48,  null),
-	('taxi',4,'boss','Patron',0, null)
+	('taxi',0,'recrue','Recrue',12, '{}','{}'),
+	('taxi',1,'novice','Novice',24, '{}','{}'),
+	('taxi',2,'experimente','Experimente',36, '{}','{}'),
+	('taxi',3,'uber','Uber',48,  '{}','{}'),
+	('taxi',4,'boss','Patron',0, '{}','{}')
 ;
 
 -- Unicorn 
