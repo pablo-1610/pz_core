@@ -27,7 +27,7 @@ Markers = {
                                         if IsControlJustPressed(1, 51) then m.interact() end
                                     end
                                 elseif m.condition == "boss" then
-                                    if ESX.PlayerData.job.grade_label == "Boss" then
+                                    if ESX.PlayerData.job.grade_label == "boss" then
                                         pzCore.utils.help(m.help)
                                         if IsControlJustPressed(1, 51) then m.interact() end
                                     end
