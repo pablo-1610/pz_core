@@ -95,7 +95,7 @@ function getInformations(player)
 		Citizen.SetTimeout(1100, function()
 		identityStats = data
 		end)
-	end, GetPlayerServerId(player))
+	end, player)
 end
 
 local function getVehicleInfos(vehicleData)
