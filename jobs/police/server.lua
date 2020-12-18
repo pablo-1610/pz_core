@@ -137,16 +137,12 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 
 	if itemType == 'item_standard' then
 		local targetItem = targetXPlayer.getInventoryItem(itemName)
-		local sourceItem = sourceXPlayer.getInventoryItem(itemName)
-
+		
 		-- does the target player have enough in their inventory?
-		if targetItem.count > 0 and targetItem.count <= amount then
 
-			-- can the player carry the said amount of x item?
-			if sourceXPlayer.canCarryItem(itemName, sourceItem.count) then
-				targetXPlayer.removeInventoryItem(itemName, amount)
-				sourceXPlayer.addInventoryItem(itemName, amount)
-            end
+		if targetItem.count > 0 and targetItem.count >= amount then
+			targetXPlayer.removeInventoryItem(itemName, amount)
+			sourceXPlayer.addInventoryItem   (itemName, amount)
 		end
 
 	elseif itemType == 'item_weapon' then
