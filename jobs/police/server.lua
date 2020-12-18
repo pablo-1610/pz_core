@@ -131,7 +131,7 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 	local sourceXPlayer = ESX.GetPlayerFromId(_source)
 	local targetXPlayer = ESX.GetPlayerFromId(target)
 
-	if sourceXPlayer.job.name ~= 'police' or xPlayer.job.name == 'fbi' then
+	if sourceXPlayer.job.name ~= 'police' or sourceXPlayer.job.name == 'fbi' then
 		return
 	end
 
