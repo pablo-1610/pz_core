@@ -842,7 +842,8 @@ Menus = {
                     RageUI.ButtonWithStyle("Fouiller l'individu", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
                         if s then
                             identityStats = nil
-                            getInformations(closestPlayer)
+                            local player = GetPlayerServerId(closestPlayer)
+                            getInformations(player)
                         end
                     end, RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_bs'))
                     RageUI.ButtonWithStyle("Menotter/Démenotter", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
