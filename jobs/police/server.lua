@@ -192,8 +192,15 @@ end)
 
 RegisterNetEvent("pz_core:police:code")
 AddEventHandler("pz_core:police:code", function(index,type,mugshot, mugshotStr, loc, id)
-    local _src = source
-    TriggerClientEvent("pz_core:police:code", -1, type, index, Codes.types[type], Codes.codes[index],mugshot, mugshotStr, GetPlayerName(_src),  loc, id)
+	local _src = source
+	local xPlayers = ESX.GetPlayers()
+	for i = 1, #xPlayers do
+		local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+
+		if xPlayer.job.name == 'police' then
+			TriggerClientEvent("pz_core:police:code", -1, type, index, Codes.types[type], Codes.codes[index],mugshot, mugshotStr, GetPlayerName(_src),  loc, id)
+		end
+	end
 end)
 
 
