@@ -835,7 +835,7 @@ Menus = {
                     RageUI.ButtonWithStyle("Prendre la carte d'identité", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
                         if s then
                             identityStats = nil
-                            --pzCore.jobs["police"].getIdentity(closestPlayer)
+                            local player = GetPlayerServerId(closestPlayer)
                             getInformations(closestPlayer)
                         end
                     end, RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_identity'))
