@@ -29,6 +29,8 @@ RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_identity').Closed = function
 RMenu.Add('police_dynamicmenu', 'police_dynamicmenu_bs', RageUI.CreateSubMenu(RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_citizen'), "Fouille", "Inventaire de la personne"))
 RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_bs').Closed = function()end
 
+RMenu.Add('police_dynamicmenu', 'police_dynamicmenu_licence', RageUI.CreateSubMenu(RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_citizen'), "Licence", "Licence de la personne"))
+RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_licence').Closed = function()end
 
 RMenu.Add('police_dynamicmenu', 'police_dynamicmenu_codes', RageUI.CreateSubMenu(RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_main'), "Communications radio", "Communication avec le reste des effectifs"))
 RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_codes').Closed = function()end
