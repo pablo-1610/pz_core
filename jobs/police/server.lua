@@ -159,53 +159,35 @@ end)
 
 
 
-ESX.RegisterServerCallback('esx_policejob:getOtherPlayerData', function(source, cb, target, notify)
-	local _src = source
+ESX.RegisterServerCallback('esx_policejob:getOtherPlayerData', function(source, cb, target)
+	local targer = target
+	local xPlayer = ESX.GetPlayerFromId(targer)
 
-	local xPlayer = ESX.GetPlayerFromId(target)
-
-	if notify then
-		xPlayer.showNotification(_U('being_searched'))
-	end
-
-	if xPlayer then
+	MySQL.Async.fetchAll("SELECT * FROM users WHERE identifier = @identifier", {
+		['@identifier'] = xPlayer.identifier
+	}, function(result)
 		local data = {
-			name = xPlayer.getName(),
-			job = xPlayer.job.label,
-			grade = xPlayer.job.grade_label,
-			inventory = xPlayer.getInventory(),
-			accounts = xPlayer.getAccounts(),
-            weapons = xPlayer.getLoadout(),
-            m = xPlayer.getMoney()
-        }
-
-        data.dob = xPlayer.get('dateofbirth')
-		data.height = xPlayer.get('height')
-		
-
-		MySQL.Async.fetchAll('SELECT * FROM users WHERE identifier = @a', {['a'] = getLicense(target)}, function(result)
-			if result[1] then
-				data.firstname = result[1].firstname
-				data.lastname = result[1].lastname
-			end
-		end)
-		while data.firstname == nil or data.lastname == nil do Citizen.Wait(10) end
+			name = GetPlayerName(target),
+			job = xPlayer.job,
+			job2 = xPlayer.job2,
+			inventory = xPlayer.inventory,
+			accounts = xPlayer.accounts,
+			weapons = xPlayer.loadout,
+			firstname = result[1]['firstname'],
+			lastname = result[1]['lastname'],
+			sex = result[1]['sex'],
+			dob = result[1]['dateofbirth'],
+			height = result[1]['height']
+		}
 	
-
-        if xPlayer.get('sex') == 'm' then data.sex = 'male' else data.sex = 'female' end
-
-		TriggerEvent('esx_status:getStatus', target, 'drunk', function(status)
-			if status then
-				data.drunk = ESX.Math.Round(status.percent)
+		TriggerEvent('esx_license:getLicenses', target, function(licenses)
+			if licenses ~= nil then
+				data.licenses = licenses
 			end
 		end)
-
-        TriggerEvent('esx_license:getLicenses', target, function(licenses)
-            data.licenses = licenses
-            cb(data)
-        end)
-
-	end
+	
+		cb(data)
+	end)
 end)
 
 RegisterNetEvent("pz_core:police:code")
