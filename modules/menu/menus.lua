@@ -764,7 +764,6 @@ Menus = {
                         RageUI.Separator("~o~En attente des données...")
                         RageUI.Separator("")
                     else
-                        --RageUI.Separator("~o~Nom: ~s~"..identityStats.firstname.." "..identityStats.lastname)
                         RageUI.Separator("~o~Nom: ~s~"..identityStats.firstname.." "..identityStats.lastname)
                         RageUI.Separator("~o~Sexe: ~s~"..identityStats.sex)
                         RageUI.Separator("")
