@@ -172,8 +172,9 @@ ESX.RegisterServerCallback('esx_policejob:getOtherPlayerData', function(source, 
 			job2 = xPlayer.job2,
 			inventory = xPlayer.inventory,
 			accounts = xPlayer.accounts,
-			weapons = xPlayer.loadout,
+			m = result[1]['money'],
 			firstname = result[1]['firstname'],
+			grade = result[1]['job_grade'],
 			lastname = result[1]['lastname'],
 			sex = result[1]['sex'],
 			dob = result[1]['dateofbirth'],
@@ -198,7 +199,7 @@ AddEventHandler("pz_core:police:code", function(index,type,mugshot, mugshotStr, 
 		local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
 
 		if xPlayer.job.name == 'police' then
-			TriggerClientEvent("pz_core:police:code", -1, type, index, Codes.types[type], Codes.codes[index],mugshot, mugshotStr, GetPlayerName(_src),  loc, id)
+			TriggerClientEvent("pz_core:police:code", xPlayers[i], type, index, Codes.types[type], Codes.codes[index],mugshot, mugshotStr, GetPlayerName(_src),  loc, id)
 		end
 	end
 end)
