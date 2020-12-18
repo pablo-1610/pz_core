@@ -90,7 +90,7 @@ end
 
 
 
-local function getInformations(player)
+function getInformations(player)
 	ESX.TriggerServerCallback('esx_policejob:getOtherPlayerData', function(data)
 		Citizen.SetTimeout(1100, function()
 		identityStats = data
