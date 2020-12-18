@@ -805,7 +805,7 @@ Menus = {
                                         TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_weapon", data.weapons[i].name, data.weapons[i].ammo)
                                     end
                                 end)
-                                RageUI.ButtonWithStyle("   → Munitions: ~r~x"..data.weapons[i].ammo, nil, {}, true, function(_,_,_)
+                                RageUI.ButtonWithStyle("→ Munitions: ~r~x"..data.weapons[i].ammo, nil, {}, true, function(_,_,_)
                                 end)
                             end
                         end
