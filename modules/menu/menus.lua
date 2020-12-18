@@ -834,6 +834,43 @@ Menus = {
                 end, 1)
 
                 
+                RageUI.IsVisible(RMenu:Get("police_dynamicmenu",'police_dynamicmenu_licence'),true,true,true,function()
+                    menu = true
+                    local data = identityStats
+                    if identityStats == nil then
+                        RageUI.Separator("")
+                        RageUI.Separator("~o~En attente des données...")
+                        RageUI.Separator("")
+                    else
+                        if data.licenses ~= nil then
+                            RageUI.Separator("↓ ~o~Licence ~s~↓")
+                            if data.licenses ~= nil then
+                                for i = 1, #data.licenses, 1 do
+                                    if data.licenses[i].label ~= nil and data.licenses[i].type ~= nil then
+                                        RageUI.ButtonWithStyle(data.licenses[i].label ,nil, {RightLabel = "~r~Revoqué ~s~→→"}, true, function(_,_,s)
+                                            if s then
+                                                TriggerServerEvent('esx_license:removeLicense', GetPlayerServerId(player), data.licenses[i].type)
+
+
+                                                ESX.SetTimeout(300, function()
+                                                    RageUI.CloseAll()
+                                                    identityStats = nil
+                                                    Wait(500)
+                                                    RageUI.Visible(RMenu:Get("police_dynamicmenu","police_dynamicmenu_citizen"), true)
+                                                end)
+                                            end
+                                        end)
+                                    end
+                                end
+                            else
+                                RageUI.Separator("")
+                                RageUI.Separator("~o~La personne n'as pas de licence...")
+                                RageUI.Separator("")
+                            end
+                        end
+                    end
+                end, function()    
+                end, 1)         
 
                 RageUI.IsVisible(RMenu:Get("police_dynamicmenu",'police_dynamicmenu_citizen'),true,true,true,function()
                     menu = true
@@ -854,6 +891,13 @@ Menus = {
                             getInformations(player)
                         end
                     end, RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_bs'))
+                    RageUI.ButtonWithStyle("Gérer les licences", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
+                        if s then
+                            identityStats = nil
+                            local player = GetPlayerServerId(closestPlayer)
+                            getInformations(player)
+                        end
+                    end, RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_licence'))
                     RageUI.ButtonWithStyle("Menotter/Démenotter", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
                         if s then
                             TriggerServerEvent('esx_policejob:handcuff', GetPlayerServerId(closestPlayer))
