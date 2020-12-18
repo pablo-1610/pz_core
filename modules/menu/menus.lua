@@ -813,7 +813,7 @@ Menus = {
                             RageUI.Separator("↓ ~o~Objets ~s~↓")
                             for i=1, #data.inventory, 1 do
                                 if data.inventory[i].count > 0 then
-                                    RageUI.ButtonWithStyle(pzCore.getItemName(data.inventory[i].name).." (~b~x"..data.inventory[i].count.."~s~)", nil, {RightLabel = "~r~Confisquer ~s~→→"}, true, function(_,_,s)
+                                    RageUI.ButtonWithStyle(data.inventory[i].label.." (~b~x"..data.inventory[i].count.."~s~)", nil, {RightLabel = "~r~Confisquer ~s~→→"}, true, function(_,_,s)
                                         if s then
                                             TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_standard", data.inventory[i].name, data.inventory[i].count)
                                         end
