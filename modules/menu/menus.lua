@@ -767,7 +767,7 @@ Menus = {
                         RageUI.Separator("~o~Nom: ~s~"..identityStats.firstname.." "..identityStats.lastname)
                         RageUI.Separator("~o~Sexe: ~s~"..identityStats.sex)
                         RageUI.Separator("")
-                        RageUI.Separator("~g~Liquide: ~s~"..identityStats.m.."$")
+                        RageUI.Separator("~g~Liquide: ~s~"..identityStats.sex.."$")
                         RageUI.Separator("")
                         RageUI.Separator("~b~Emploi: ~s~"..identityStats.job.." - "..identityStats.grade)
                     end
