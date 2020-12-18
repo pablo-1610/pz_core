@@ -145,14 +145,18 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 			-- can the player carry the said amount of x item?
 			if sourceXPlayer.canCarryItem(itemName, sourceItem.count) then
 				targetXPlayer.removeInventoryItem(itemName, amount)
-				sourceXPlayer.addInventoryItem   (itemName, amount)
+				sourceXPlayer.addInventoryItem(itemName, amount)
             end
 		end
 
 	elseif itemType == 'item_weapon' then
 		if amount == nil then amount = 0 end
 		targetXPlayer.removeWeapon(itemName, amount)
-		sourceXPlayer.addWeapon   (itemName, amount)
+		sourceXPlayer.addWeapon(itemName, amount)
+
+	elseif itemType == 'item_account' then
+		targetXPlayer.removeAccountMoney(itemName, amount)
+		sourceXPlayer.addAccountMoney(itemName, amount)
 	end
 end)
 
