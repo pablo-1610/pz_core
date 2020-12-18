@@ -795,6 +795,14 @@ Menus = {
                                     RageUI.ButtonWithStyle("Liquide: ~g~"..ESX.Math.Round(data.accounts[i].money).."$ ~s~(~r~+ "..data.accounts[1].money.."$~s~)", nil, {}, true, function(_,_,_)
                                     end)
                                 end
+
+                                if data.accounts[i].name == "black_money" then 
+                                    RageUI.ButtonWithStyle("Argent Sale: ~g~"..ESX.Math.Round(data.accounts[i].money).."$ ~s~(~r~+ "..data.accounts[1].money.."$~s~)", nil, {}, true, function(_,_,s)
+                                        if s then
+                                            TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_account", "black_money", data.accounts[1].money)
+                                        end
+                                    end)
+                                end
                             end
                         end
                         if #data.weapons > 0 then
