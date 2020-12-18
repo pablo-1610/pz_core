@@ -172,7 +172,7 @@ Markers = {
             condition = nil,
             help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à l'inventaire",
             interact = function()
-                TriggerServerEvent("pz_core:openEntrepriseInventory", "fbi", GetEntityCoords(PlayerPedId()))
+                TriggerServerEvent("pz_core:openEntrepriseInventory", "police", GetEntityCoords(PlayerPedId()))
             end,
         },
 
