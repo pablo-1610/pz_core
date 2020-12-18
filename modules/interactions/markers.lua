@@ -561,7 +561,7 @@ Markers = {
             itrDist = 1.5,
             color = {r = 221, g = 74, b = 237},
             condition = "boss",
-            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à la gestion du Taxi",
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour accéder à la gestion de votre entreprise",
             interact = function()
                 TriggerEvent('esx_society:openBossMenu', 'vigne', function(data, menu)
                     menu.close()
