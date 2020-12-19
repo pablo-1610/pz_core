@@ -51,6 +51,21 @@ RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_announce').Closed = function
 
 
 local policeOpen = false
+
+local function jobChanged()
+
+	if ESX.PlayerData.job.name == "police" or ESX.PlayerData.job.name == "fbi" then
+		isPolice = true
+		inServicePolice = false
+		pzCore.mug("Statut de service",orgByService[ESX.PlayerData.job.name],"Vous êtes actuellement considéré comme étant ~r~hors service~s~. Vous pouvez changer ce statut avec votre menu ~o~[F6]") 
+		jobMenu()
+	else
+		isPolice = false
+		inServicePolice = false
+		menuThread = false 
+	end
+end
+
 local function jobMenu()
 	if menuThread then return end
 	menuThread = true
@@ -76,19 +91,6 @@ local function init()
 	jobMenu()
 end
 
-local function jobChanged()
-
-	if ESX.PlayerData.job.name == "police" or ESX.PlayerData.job.name == "fbi" then
-		isPolice = true
-		inServicePolice = false
-		pzCore.mug("Statut de service",orgByService[ESX.PlayerData.job.name],"Vous êtes actuellement considéré comme étant ~r~hors service~s~. Vous pouvez changer ce statut avec votre menu ~o~[F6]") 
-		jobMenu()
-	else
-		isPolice = false
-		inServicePolice = false
-		menuThread = false 
-	end
-end
 
 
 
