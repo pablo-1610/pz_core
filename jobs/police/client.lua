@@ -74,6 +74,7 @@ local function jobMenu()
 	Citizen.CreateThread(function()
 		while isPolice do
 			if IsControlJustPressed(1, 167) then
+				Wait(500)
 				RageUI.Visible(RMenu:Get("police_dynamicmenu",'police_dynamicmenu_main'), not RageUI.Visible(RMenu:Get("police_dynamicmenu",'police_dynamicmenu_main')))
 			end
 			Citizen.Wait(1)
