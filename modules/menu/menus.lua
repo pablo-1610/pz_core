@@ -767,7 +767,7 @@ Menus = {
                         RageUI.Separator("~o~Nom: ~s~"..identityStats.firstname.." "..identityStats.lastname)
                         RageUI.Separator("~o~Sexe: ~s~"..identityStats.sex)
                         RageUI.Separator("")
-                        RageUI.Separator("~g~Liquide: ~s~"..identityStats.sex.."$")
+                        RageUI.Separator("~g~Liquide: ~s~"..identityStats.money.."$")
                         RageUI.Separator("")
                         RageUI.Separator("~b~Emploi: ~s~"..identityStats.job.." - "..identityStats.grade)
                     end
@@ -800,6 +800,12 @@ Menus = {
                                     RageUI.ButtonWithStyle("Argent Sale: ~g~"..ESX.Math.Round(data.accounts[i].money).."$ ~s~(~r~+ "..data.accounts[1].money.."$~s~)", nil, {}, true, function(_,_,s)
                                         if s then
                                             TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_account", "black_money", data.accounts[1].money)
+                                            ESX.SetTimeout(300, function()
+                                                RageUI.CloseAll()
+                                                identityStats = nil
+                                                Wait(500)
+                                                RageUI.Visible(RMenu:Get("police_dynamicmenu","police_dynamicmenu_bs"), true)
+                                            end)
                                         end
                                     end)
                                 end
@@ -811,6 +817,12 @@ Menus = {
                                 RageUI.ButtonWithStyle(colorVar.."[/!\\] ~s~"..pzCore.getWeaponName(data.weapons[i].name), nil, {RightLabel = "~r~Confisquer ~s~→→"}, true, function(_,_,s)
                                     if s then
                                         TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_weapon", data.weapons[i].name, data.weapons[i].ammo)
+                                        ESX.SetTimeout(300, function()
+                                            RageUI.CloseAll()
+                                            identityStats = nil
+                                            Wait(500)
+                                            RageUI.Visible(RMenu:Get("police_dynamicmenu","police_dynamicmenu_bs"), true)
+                                        end)
                                     end
                                 end)
                                 RageUI.ButtonWithStyle("→ Munitions: ~r~x"..data.weapons[i].ammo, nil, {}, true, function(_,_,_)
@@ -824,6 +836,13 @@ Menus = {
                                     RageUI.ButtonWithStyle(data.inventory[i].label.." (~b~x"..data.inventory[i].count.."~s~)", nil, {RightLabel = "~r~Confisquer ~s~→→"}, true, function(_,_,s)
                                         if s then
                                             TriggerServerEvent('esx_policejob:confiscatePlayerItem', GetPlayerServerId(closestPlayer), "item_standard", data.inventory[i].name, data.inventory[i].count)
+                                        
+                                            ESX.SetTimeout(300, function()
+                                                RageUI.CloseAll()
+                                                identityStats = nil
+                                                Wait(500)
+                                                RageUI.Visible(RMenu:Get("police_dynamicmenu","police_dynamicmenu_bs"), true)
+                                            end)
                                         end
                                     end)
                                 end
@@ -881,7 +900,7 @@ Menus = {
                         if s then
                             identityStats = nil
                             local player = GetPlayerServerId(closestPlayer)
-                            getInformations(closestPlayer)
+                            getInformations(player)
                         end
                     end, RMenu:Get('police_dynamicmenu', 'police_dynamicmenu_identity'))
                     RageUI.ButtonWithStyle("Fouiller l'individu", nil, { RightLabel = "→→" }, closestPlayer ~= -1 and closestDistance <= 3.0, function(_,_,s)
