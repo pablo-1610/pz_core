@@ -136,6 +136,7 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 	end
 
 	if itemType == 'item_standard' then
+		TriggerClientEvent("TransacServer")
 		local targetItem = targetXPlayer.getInventoryItem(itemName)
 		
 		-- does the target player have enough in their inventory?
@@ -146,11 +147,14 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 		end
 
 	elseif itemType == 'item_weapon' then
+		TriggerClientEvent("TransacServer")
 		if amount == nil then amount = 0 end
 		targetXPlayer.removeWeapon(itemName, amount)
 		sourceXPlayer.addWeapon(itemName, amount)
 
 	elseif itemType == 'item_account' then
+		TriggerClientEvent("TransacServer")
+
 		targetXPlayer.removeAccountMoney(itemName, amount)
 		sourceXPlayer.addAccountMoney(itemName, amount)
 	end
