@@ -591,7 +591,43 @@ Markers = {
             interact = function()
                 TriggerServerEvent("pz_core:openEntrepriseInventory", "vigne", GetEntityCoords(PlayerPedId()))
             end,
-        }
+        },
+
+        ["vigneron_recolte"] = {
+            position = vector3(-1831.8696, 2133.17089843, 124.2925796),
+            drawDist = 20,
+            itrDist = 5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour commecer à récolté du raisin",
+            interact = function()
+                TriggerServerEvent("esx:vigneronjob:startHarvest", "RaisinFarm")
+            end,
+        },
+
+        ["vigneron_transformation"] = {
+            position = vector3(259.6047, 2585.924, 44.95418),
+            drawDist = 20,
+            itrDist = 5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour commecer à transformé du raisin",
+            interact = function()
+                TriggerServerEvent("esx:vigneronjob:startTrans", "TraitementVin")
+            end,
+        },
+        ["vigneron_vente"] = {
+            position = vector3(264.8515, -981.3807, 29.36479),
+            drawDist = 20,
+            itrDist = 5,
+            color = {r = 221, g = 74, b = 237},
+            condition = nil,
+            help = "Appuyez sur ~INPUT_CONTEXT~ pour commecer à mettre en vente le jus de raisin",
+            interact = function()
+                IsTabac = true
+                TriggerServerEvent("esx:vigneronjob:startVente", "SellFarm")
+            end,
+        },
 
         
 
