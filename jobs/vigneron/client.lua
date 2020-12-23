@@ -82,8 +82,8 @@ local function jobblip()
 	end
 end
 
-RegisterNetEvent('Kylian::0909::esx:setJob')
-AddEventHandler('Kylian::0909::esx:setJob', function(job)
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
     ESX.PlayerData.job = job
 
 	deleteBlips()
