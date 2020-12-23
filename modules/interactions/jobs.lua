@@ -81,7 +81,10 @@ jobsMarkers = {
             "vigneron_vehicleClear",
             "vigneron_boss",
             "vigneron_clothes",
-            "vigneron_inventory"
+            "vigneron_inventory",
+            "vigneron_recolte",
+            "vigneron_transformation",
+            "vigneron_vente"
         }
     },
 }
