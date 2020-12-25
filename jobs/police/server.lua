@@ -190,7 +190,6 @@ ESX.RegisterServerCallback('esx_policejob:getOtherPlayerData', function(source, 
 			cb(data)
 		end)
 	
-		cb(data)
 	end)
 end)
 
