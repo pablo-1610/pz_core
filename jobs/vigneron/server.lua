@@ -3,6 +3,9 @@ local PlayersSelling = {}
 local PlayersHarvesting = {}
 local jusr = 1
 
+TriggerEvent('esx_society:registerSociety', 'vigne', 'Vigneron', 'society_vigne', 'society_vigne', 'society_vigne', {type = 'private'})
+
+
 
 local function Harvest(source, zone)
 	if PlayersHarvesting[source] == true then
