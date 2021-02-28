@@ -616,6 +616,7 @@ Markers = {
                 TriggerServerEvent("esx:vigneronjob:startTrans", "TraitementVin")
             end,
         },
+
         ["vigneron_vente"] = {
             position = vector3(264.8515, -981.3807, 29.36479),
             drawDist = 20,
@@ -624,19 +625,9 @@ Markers = {
             condition = nil,
             help = "Appuyez sur ~INPUT_CONTEXT~ pour commecer à mettre en vente le jus de raisin",
             interact = function()
-                IsTabac = true
                 TriggerServerEvent("esx:vigneronjob:startVente", "SellFarm")
             end,
-        },
-
-        
-
-
-
-       
-
-
-        
+        },       
     },
 }
 

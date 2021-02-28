@@ -80,8 +80,8 @@ local function Transform(source, zone)
 end
 
 
-RegisterServerEvent('vigneronjob:startTrans')
-AddEventHandler('vigneronjob:startTrans', function(zone)
+RegisterServerEvent('esx:vigneronjob:startTrans')
+AddEventHandler('esx:vigneronjob:startTrans', function(zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(source)
 

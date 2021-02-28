@@ -19,7 +19,7 @@ local function StopAction()
 				ClearPedTasksImmediately(PlayerPedId())
 				FreezeEntityPosition(PlayerPedId(), false)
 				Wait(3000)
-				krCore.jobsMarkers.subscribe()
+				pzCore.jobsMarkers.subscribe()
 			end
 			Citizen.Wait(1)
 		end
@@ -131,16 +131,16 @@ AddEventHandler('stoptallVigneron', function(source)
 	ClearPedTasks(PlayerPedId())
 	FreezeEntityPosition(PlayerPedId(), false)
 	Wait(5000)
-	krCore.jobsMarkers.subscribe()
+	pzCore.jobsMarkers.subscribe()
 end)
 
 
 
 RegisterNetEvent("RemoveMarkerVigneron")
 AddEventHandler("RemoveMarkerVigneron", function(source)
-	krCore.markers.unsubscribe("vigneron_recolte")
-	krCore.markers.unsubscribe("vigneron_transformation")
-	krCore.markers.unsubscribe("vigneron_vente")
+	pzCore.markers.unsubscribe("vigneron_recolte")
+	pzCore.markers.unsubscribe("vigneron_transformation")
+	pzCore.markers.unsubscribe("vigneron_vente")
 end)
 
 
