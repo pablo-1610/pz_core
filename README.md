@@ -1,9 +1,9 @@
 # pz_core
 
-⚠️ #PLEASE READ
+⚠️ PLEASE READ
 -> This project is discontinued because the PZ_COREv2 is currently under developement ! 
 
-#Infos
+Infos
 
 PZCore is an powerfull core wich can manage jobs and other cools functionalities (compatible w/ESX)
 
