@@ -207,4 +207,4 @@ AddEventHandler("pz_core:police:code", function(index,type,mugshot, mugshotStr, 
 end)
 
 
-
+TriggerEvent('esx_society:registerSociety', 'police', 'Police', 'society_police', 'society_police', 'society_police', {type = 'public'})
